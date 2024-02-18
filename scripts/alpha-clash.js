@@ -23,18 +23,28 @@ function handleKeyboardKeyupEvent(event){
     // check right or wrong key pressed
  if(playerPressed === expectedAlphabet){
     console.log('you got a point');
+    
+    const currentScore = getTextElementValueById('current-score');
+    console.log(currentScore);
+    const updatedScore = currentScore + 1;
+    setTextElementValueById('current-score', updatedScore);
+
+
+    // ---------------------------
     //   update score:
     // 1.get the current score
-    const currentScoreElement = document.getElementById('current-score');
-    const currentScoreText = currentScoreElement.innerText;
-    const currentScore = parseInt(currentScoreText);
-    console.log(currentScore);
+    /**edit start */
+    // const currentScoreElement = document.getElementById('current-score');
+    // const currentScoreText = currentScoreElement.innerText;
+    // const currentScore = parseInt(currentScoreText);
+    // console.log(currentScore);
 
-    // 2.increase the score by 1
+    // // 2.increase the score by 1
     const newScore = currentScore + 1;
 
-    // 3. show the updated score
-    currentScoreElement.innerText = newScore;
+    // // 3. show the updated score
+    // currentScoreElement.innerText = newScore;
+    /**edit end */
 
         // start a new round
         removeBackgroundColorById(expectedAlphabet);
@@ -42,16 +52,23 @@ function handleKeyboardKeyupEvent(event){
     }
     else{
         console.log('you missed. you lost a life');
+        const currentLife = getTextElementValueById('current-life');
+        const updatedLife = currentLife -1;
+        setTextElementValueById('current-life', updatedLife);
+
+        // -----------------------------
         // step-1: get the current life number 
-        const currentLifeElement = document.getElementById('current-life');
-        const currentLifeText = currentLifeElement.innerText;
-        const currentLife = parseInt(currentLifeText);
+        /**edit start */
+        // const currentLifeElement = document.getElementById('current-life');
+        // const currentLifeText = currentLifeElement.innerText;
+        // const currentLife = parseInt(currentLifeText);
 
-        // step-2: reduce the life count
-        const newLife = currentLife - 1;
+        // // step-2: reduce the life count
+        // const newLife = currentLife - 1;
 
-        // step-3: display the updated life count
-        currentLifeElement.innerText = newLife;
+        // // step-3: display the updated life count
+        // currentLifeElement.innerText = newLife;
+        /**edit end */
    }
 }
 // capture keyboard key press
